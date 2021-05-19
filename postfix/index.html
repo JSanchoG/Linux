@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="https://2tihub.xyz/icons/ubuntu.ico">
+
+  <title>Postfix</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://2tihub.xyz/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://2tihub.xyz/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="https://2tihub.xyz/css/2tihub.min.css" rel="stylesheet">
+  <link href="https://2tihub.xyz/css/darkmode.css" rel="stylesheet">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
+  <link href="https://2tihub.xyz/css/style-extra.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand animate__animated animate__fadeInDownBig" href="#instalacja">Instalacja</a>
+      <a class="navbar-brand animate__animated animate__fadeInDownBig" href="#konfiguracja">Konfiguracja</a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead animate__animated animate__fadeIn" style="background-image: url('https://linux.2tihub.xyz/files/linux.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1 class="animacja animate__animated animate__zoomIn" style="margin-bottom:25px">Postfix</h1>
+
+            <span class="meta animacja animate__animated animate__fadeInUpBig">Jakub Gożuk - 16 Maj, 2021</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container animate__animated animate__bounceInLeft">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+          <h2 class="section-heading" id="ssh" style="padding-top:70px;text-align:center">Postfix</h2>
+          <blockquote style="margin-bottom:30px">Przeznaczony na systemy uniksopodobne serwer poczty elektronicznej (MTA), odpowiedzialny za przekazywanie i dostarczanie poczty elektronicznej. Prace nad nim rozpoczął Wietse Venema w laboratoriach IBM Research, a obecnie udostępniany jest na zasadach wolnego oprogramowania na licencji IBM Public License.</blockquote>
+          <hr>
+          <h3 class="section-heading" id="instalacja" style="padding-top:40px;padding-bottom:40px;text-align:center;margin-top:8px">Instalacja</h3>
+          <hr>
+          <p>Na serwerze zainstaluję usługę Postfix poleceniem <kbd>sudo apt install -y postfix</kbd></p>
+          <div class="banner">
+            <img src="files/1-install.png" width="256" height="192" alt=""/>
+          </div>
+          <hr>
+          <h3 class="section-heading" id="konfiguracja" style="padding-top:40px;padding-bottom:40px;text-align:center;margin-top:8px">Konfiguracja</h3>
+          <hr>
+          <p>Na początku zacznę od dodania aliasu <b>serwer.pocztowy</b> dla IP serwera (<b>192.168.3.19</b>) w pliku <kbd>/etc/hosts</kbd></p>
+          <div class="banner">
+            <img src="files/2-alias.png" width="256" height="192" alt=""/>
+          </div>
+          <div class="banner">
+            <img src="files/2-alias-2.png" width="256" height="192" alt=""/>
+          </div>
+          <hr>
+          <p>Teraz zacznę konfigurować samego postfixa</p>
+          <div class="banner">
+            <img src="files/3-dpkg.png" width="256" height="192" alt=""/>
+          </div>
+          <br>
+          <div class="banner">
+            <img src="files/4-conf-1.png" width="256" height="192" alt=""/>
+          </div>
+          <div class="banner">
+            <img src="files/4-conf-2.png" width="256" height="192" alt=""/>
+          </div>
+          <div class="banner">
+            <img src="files/4-conf-3.png" width="256" height="192" alt=""/>
+          </div>
+          <div class="banner">
+            <img src="files/4-conf-4.png" width="256" height="192" alt=""/>
+          </div>
+          <div class="banner">
+            <img src="files/4-conf-5.png" width="256" height="192" alt=""/>
+          </div>
+          <div class="banner">
+            <img src="files/4-conf-6.png" width="256" height="192" alt=""/>
+          </div>
+          <div class="banner">
+            <img src="files/4-conf-7.png" width="256" height="192" alt=""/>
+          </div>
+          <div class="banner">
+            <img src="files/4-conf-8.png" width="256" height="192" alt=""/>
+          </div>
+          <div class="banner">
+            <img src="files/4-conf-9.png" width="256" height="192" alt=""/>
+          </div>
+          <div class="banner">
+            <img src="files/4-conf-10.png" width="256" height="192" alt=""/>
+          </div>
+          <div class="banner">
+            <img src="files/4-conf-11.png" width="256" height="192" alt=""/>
+          </div>
+          <hr>
+          <p>Przejdę teraz do konfiguracji pliku <kbd>/etc/postfix/main.cf</kbd>, lecz najpierw utworzę jego kopię</p>
+          <div class="banner">
+            <img src="files/5-main_backup.png" width="256" height="192" alt=""/>
+          </div>
+          <br>
+          <div class="banner">
+            <img src="files/6-main_config.png" width="256" height="192" alt=""/>
+          </div>
+          <div class="banner">
+            <img src="files/6-main_config-2.png" width="256" height="192" alt=""/>
+          </div>
+          <hr>
+          <p>Zrestartuję usługę postfix</p>
+          <div class="banner">
+            <img src="files/7-restart.png" width="256" height="192" alt=""/>
+          </div>
+          <hr>
+          <p>Połączę się z serwerem za pomocą telnetu na porcie 25 (SMTP) oraz wyślę wiadomość od użytkownika <b>root</b> do <b>sancho</b>. Wiadomość o zawartości "<b>wiadomosc testowa 16.05.2021.</b>" powinna znaleźć się na serwerze w katalogu <kbd>Maildir/new</kbd></p>
+          <div class="banner">
+            <img src="files/8-telnet.png" width="256" height="192" alt=""/>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </article>
+  <!-- Footer -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://2tihub.xyz/vendor/jquery/jquery.min.js"></script>
+  <script src="https://2tihub.xyz/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="https://2tihub.xyz/js/2tihub.min.js"></script>
+  <script src="https://2tihub.xyz/js/darkmode.js"></script>
+
+</body></html>
