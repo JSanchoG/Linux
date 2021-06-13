@@ -1,6 +1,6 @@
 $(document).ready(function () {
   // FETCHING DATA FROM JSON FILE
-  $.getJSON("https://2tihub.xyz/json/linux.json",
+  $.getJSON("https://tihub.pl/json/linux.json",
   function (data) {
     var fetchJSON = '';
     // ITERATING THROUGH OBJECTS
