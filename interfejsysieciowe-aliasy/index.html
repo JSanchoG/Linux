@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="https://tihub.pl/icons/ubuntu.ico">
+
+  <title>Linux - Konfiguracja interfejsów sieciowych i Aliasy sieciowe</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://tihub.pl/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://tihub.pl/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="https://tihub.pl/css/tihub.min.css" rel="stylesheet">
+  <link href="https://tihub.pl/css/darkmode.css" rel="stylesheet">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
+  <link href="https://tihub.pl/css/style-extra.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand animate__animated animate__fadeInDownBig" href="#konfiguracjainterfejsowsieciowych">Konfiguracja interfejsów</a>
+      <a class="navbar-brand animate__animated animate__fadeInDownBig" href="#aliasy">Aliasy adresów</a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead animate__animated animate__fadeIn" style="background-image: url('https://linux.tihub.pl/files/linux.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1 class="animacja animate__animated animate__zoomIn" style="margin-bottom:25px">Linux - Konfiguracja interfejsów sieciowych i Aliasy sieciowe</h1>
+
+            <span class="meta animacja animate__animated animate__fadeInUpBig">Jakub Gożuk - 30 Listopad, 2021</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container animate__animated animate__bounceInLeft">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+          <h2 class="section-heading" id="konfiguracjainterfejsowsieciowych" style="padding-top:70px">Konfiguracja interfejsów sieciowych w systemie Linux Ubuntu 18.04</h2>
+          <p>Aby zacząć konfigurację interfejsu sieciowego, należy wykonać polecenie <strong>ifconfig</strong>, wyświetlą się interfejsy sieciowe, potem trzeba przejść do <strong>/etc/netplan</strong> używając polecenia <strong>cd</strong>. Jeżeli wystąpi błąd, konieczna będzie instalacja narzędzi sieciowych za pomocą polecenia <kbd>sudo apt install net-tools</kbd></p>
+          <div class="banner">
+            <img src="files/4.png" width="256" height="192" alt=""/>
+          </div>
+          <hr>
+          <p>Następnie należy edytować plik <strong>01-network-manager-all.yaml</strong> za pomocą polecenia <kbd>sudo nano 01-network-manager-all.yaml</kbd></p>
+          <div class="banner">
+            <img src="files/2.png" width="256" height="192" alt=""/>
+          </div>
+          <hr>
+          <p>Można tu zmienić adres IP danej karty sieciowej, dodać bramę lub adresy DNS, należy pamiętać o wcięciach z reguły wynoszących dwie spacje<br>Aby zapisać edytowany plik, należy wciśnąć <strong>Ctrl+O</strong>, a następnie bez zmiany nazwy pliku wcisnąć <strong>Enter</strong></p>
+          <div class="banner">
+            <img src="files/3.png" width="256" height="192" alt=""/>
+          </div>
+          <hr>
+          <p>Zapisać zmiany można wykonując polecenie <strong>sudo netplan apply</strong></p>
+          <div class="banner">
+            <img src="files/4.png" width="256" height="192" alt=""/>
+          </div>
+          <div class="banner">
+            <img src="files/5.png" width="256" height="192" alt=""/>
+          </div>
+          <hr>
+          <h2 class="section-heading" id="aliasy" style="padding-top:70px">Konfiguracja aliasów sieciowych w systemie Linux Ubuntu 18.04</h2>
+          <p>Aby dodać aliasy adresów w systemie Linux, należy wyedytować plik <kbd>/etc/hosts</kbd></p>
+          <div class="banner">
+            <img src="files/6.png" width="256" height="192" alt=""/>
+          </div>
+          <p>Można tu dodać dowolne aliasy dla adresów sieciowych</p>
+          <div class="banner">
+            <img src="files/7.png" width="256" height="192" alt=""/>
+          </div>
+          <hr>
+          <p>Poprawność wykonania można sprawdzić za pomocą polecenia <kbd>ping</kbd></p>
+          <div class="banner">
+            <img src="files/8.png" width="256" height="192" alt=""/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Footer -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://tihub.pl/vendor/jquery/jquery.min.js"></script>
+  <script src="https://tihub.pl/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="https://tihub.pl/js/tihub.min.js"></script>
+  <script src="https://tihub.pl/js/darkmode.js"></script>
+
+</body></html>
