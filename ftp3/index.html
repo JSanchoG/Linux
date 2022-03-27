@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="https://tihub.pl/icons/ubuntu.ico" />
+
+    <title>FTP</title>
+
+    <!-- Bootstrap core CSS -->
+    <link
+      href="https://tihub.pl/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom fonts for this template -->
+    <link
+      href="https://tihub.pl/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Custom styles for this template -->
+    <link href="https://tihub.pl/css/tihub.min.css" rel="stylesheet" />
+    <link href="https://tihub.pl/css/darkmode.css" rel="stylesheet" />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      rel="stylesheet"
+    />
+
+    <link href="https://tihub.pl/css/style-extra.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Page Header -->
+    <header
+      class="masthead animate__animated animate__fadeIn"
+      style="background-image: url('https://linux.tihub.pl/files/linux.jpg')"
+    >
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1
+                class="animacja animate__animated animate__zoomIn"
+                style="margin-bottom: 25px"
+              >
+                FTP - użytkownik istniejący w systemie i wielu użytkowników
+              </h1>
+
+              <span class="meta animacja animate__animated animate__fadeInUpBig"
+                >Jakub Gożuk - 7 Maj, 2021</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container animate__animated animate__bounceInLeft">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <h2
+              class="section-heading"
+              id="ftp"
+              style="padding-top: 70px; text-align: center"
+            >
+              FTP
+            </h2>
+            <blockquote>
+              Protokół transferu plików, FTP (od ang. File Transfer Protocol) –
+              protokół komunikacyjny typu klient-serwer wykorzystujący protokół
+              sterowania transmisją (TCP) według modelu TCP/IP (krótko:
+              połączenie TCP), umożliwiający dwukierunkowy transfer plików w
+              układzie serwer FTP–klient FTP.
+            </blockquote>
+            <hr />
+            <p>
+              Na początek wykonam instalację samej usługi oraz sprawdzę jej
+              poprawność działania
+            </p>
+            <div class="banner">
+              <img src="files/serwer/1.png" width="256" height="192" alt="" />
+            </div>
+            <div class="banner">
+              <img src="files/serwer/2.png" width="256" height="192" alt="" />
+            </div>
+            <p>
+              Po instalacji wykanowam kopię pliku konfiguracyjnego usługi FTP
+              (<kbd>/etc/vsftpd.conf</kbd>) oraz odkomentuję następującą
+              deklarację:
+              <span
+                class="border border-dark"
+                style="padding-left: 8px; padding-right: 8px"
+                >write_enable=YES</span
+              >, następnie sprawdzę poprawność konfiguracji poprzedzając to
+              zresetowaniem usługi
+            </p>
+            <div class="banner">
+              <img src="files/serwer/3.png" width="256" height="192" alt="" />
+            </div>
+            <div class="banner">
+              <img src="files/serwer/4.png" width="256" height="192" alt="" />
+            </div>
+            <div class="banner">
+              <img src="files/serwer/5.png" width="256" height="192" alt="" />
+            </div>
+            <div class="banner">
+              <img src="files/serwer/6.png" width="256" height="192" alt="" />
+            </div>
+            <hr />
+            <p id="foldery">
+              Teraz utworzę folder - <kbd>home/sanchoftp</kbd>, w którym
+              umieszczę trzy katalogi o następujących nazwach: <kbd>jeden</kbd>,
+              <kbd>dwa</kbd>, <kbd>wszyscy</kbd>
+            </p>
+            <div class="banner">
+              <img src="files/serwer/7.png" width="256" height="192" alt="" />
+            </div>
+            <p>
+              Aby móc przydzielić dostęp do danych zasobów posługując się
+              grupami, utworzę trzy o następujących nazwach: <kbd>jeden</kbd>,
+              <kbd>dwa</kbd>, <kbd>wszyscy</kbd> oraz dodam po trzech
+              użytkowników o nazwie
+              <kbd>&lt;nazwa grupy&gt;_&lt;1/2/3&gt;</kbd> do każdej z
+              pierwszych dwóch grup (<kbd>jeden</kbd> i <kbd>dwa</kbd>).
+              Wszystkim utworzonym użytkownikom ustawiłem lokalizację katalogu
+              domowego na <kbd>/home/sanchoftp</kbd> oraz odebrałem dostęp do
+              logowania w systemie za pomocą parametrów użytych przy ich
+              tworzeniu
+            </p>
+            <div class="banner">
+              <img src="files/serwer/8.png" width="256" height="192" alt="" />
+            </div>
+            <div class="banner">
+              <img src="files/serwer/9.png" width="256" height="192" alt="" />
+            </div>
+            <hr />
+            <p>
+              Teraz upewnie się, że utworzeniu użytkownicy zostali prawidłowo
+              dodani do grup oraz dodam ich do grupy <kbd>wszyscy</kbd> edytując
+              plik <kbd>/etc/group</kbd>
+            </p>
+            <div class="banner">
+              <img src="files/serwer/10.png" width="256" height="192" alt="" />
+            </div>
+            <div class="banner">
+              <img src="files/serwer/17.png" width="256" height="192" alt="" />
+            </div>
+            <p>
+              Następnie ustawię każdemu z użytkowników, którzy mają służyć w
+              usłudze FTP hasło oraz utworzę po 2 pliki: <kbd>plik_1.txt</kbd>,
+              <kbd>plik_2.txt</kbd> w każdym z
+              <a href="#foldery">utworzonych wcześniej folderów</a>
+            </p>
+            <div class="banner">
+              <img src="files/serwer/10.png" width="256" height="192" alt="" />
+            </div>
+            <div class="banner">
+              <img src="files/serwer/11.png" width="256" height="192" alt="" />
+            </div>
+            <div class="banner">
+              <img src="files/serwer/12.png" width="256" height="192" alt="" />
+            </div>
+            <div class="banner">
+              <img src="files/serwer/13.png" width="256" height="192" alt="" />
+            </div>
+            <hr />
+            <p>
+              Dopiszę teraz <kbd>/usr/sbin/nologin</kbd> do pliku zawierającego
+              pełne ścieżki dozwolonych powłok zgłoszeniowych,
+              <kbd>/etc/shells</kbd> oraz nadam folderom odpowiednie uprawnienia
+              oraz ich właścicieli
+            </p>
+            <div class="banner">
+              <img src="files/serwer/14.png" width="256" height="192" alt="" />
+            </div>
+            <div class="banner">
+              <img src="files/serwer/15.png" width="256" height="192" alt="" />
+            </div>
+            <div class="banner">
+              <img src="files/serwer/16.png" width="256" height="192" alt="" />
+            </div>
+            <p>
+              Na sam koniec przystąpię do połączenia się do serwera ze stacji za
+              pośrednictwem skonfigurowanej już usługi FTP, testując przy tym
+              poprawnośc wykonanej konfiguracji (operacje na plikach, odczyt
+              zawartości folderu oraz poprawnośc samego połączenia)
+            </p>
+            <div class="banner">
+              <img src="files/stacja/1.png" width="256" height="192" alt="" />
+            </div>
+            <div class="banner">
+              <img src="files/stacja/2.png" width="256" height="192" alt="" />
+            </div>
+            <div class="banner">
+              <img src="files/stacja/3.png" width="256" height="192" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <!-- Footer -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://tihub.pl/vendor/jquery/jquery.min.js"></script>
+    <script src="https://tihub.pl/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="https://tihub.pl/js/tihub.min.js"></script>
+    <script src="https://tihub.pl/js/darkmode.js"></script>
+  </body>
+</html>
